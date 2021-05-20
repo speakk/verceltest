@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 export default function BookPage({book: initialBook}: Props) {
   const { query } = useRouter();
 
-  const { data: book } = useSWR<Book>(`https://jsonplaceholder.typicode.com/photos/${query.BookId}`, fetcher, { initialData: initialBook });
+  const { data: book } = useSWR<Book>(query.BookId ? `https://jsonplaceholder.typicode.com/photos/${query.BookId}` : null, fetcher, { initialData: initialBook });
 
   return (
     <div>
