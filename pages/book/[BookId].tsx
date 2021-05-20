@@ -37,6 +37,8 @@ export default function BookPage({book: initialBook}: Props) {
 
   const { data: book } = useSWR<Book>(query.BookId ? `https://jsonplaceholder.typicode.com/photos/${query.BookId}` : null, fetcher, { initialData: initialBook });
 
+  if (!book) { return <div /> }
+
   return (
     <div>
       <div>BOOK!</div>
