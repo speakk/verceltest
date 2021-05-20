@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: "blocking"
   }
 }
 
@@ -28,7 +28,8 @@ interface Props {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const book = await (await getBook(parseInt(context.params.BookId as string, 10))).json() as Book;
   return {
-    props: { book }
+    props: { book },
+    revalidate: 60
   }
 }
 
