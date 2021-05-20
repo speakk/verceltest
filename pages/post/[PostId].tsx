@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-
-const fetcher = url => fetch(url).then(r => r.json())
+import { fetcher } from '../../api/fetcher';
 
 interface Post {
   id: number;

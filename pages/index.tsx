@@ -3,8 +3,7 @@ import { Book } from "../api/books";
 import useSWR from 'swr';
 import { GetStaticProps } from "next";
 import Link from "next/link";
-
-const fetcher = url => fetch(url).then(r => r.json())
+import { fetcher } from "../api/fetcher";
 
 interface Props {
   books: Book[]

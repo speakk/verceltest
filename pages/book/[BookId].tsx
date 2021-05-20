@@ -2,8 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Book, getBook, getBooks } from "../../api/books";
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-
-const fetcher = url => fetch(url).then(r => r.json())
+import { fetcher } from "../../api/fetcher";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const books = await (await getBooks()).json() as Book[];
