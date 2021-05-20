@@ -26,7 +26,6 @@ interface Props {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  console.log(context.params.BookId);
   const book = await (await getBook(parseInt(context.params.BookId as string, 10))).json() as Book;
   return {
     props: { book }
